@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, RouterModule } from '@angular/router';
 import { User } from '../Models/user';
+import { CommonFuncService } from '../SERVICES/common-func.service';
 
 @Component({
   selector: 'app-details',
@@ -12,7 +13,8 @@ export class DetailsComponent  {
 
 
 
-constructor(private Route : ActivatedRoute){                                                    //ეს ინახავს იმ როუტს რომელიც ამ გვერდის ჩატვირთვისას არის და ვინახავთ Route ცვლადში
+
+constructor(private Route : ActivatedRoute , private commonFunction : CommonFuncService){                                                    //ეს ინახავს იმ როუტს რომელიც ამ გვერდის ჩატვირთვისას არის და ვინახავთ Route ცვლადში
   this.Route.params.subscribe(data => this.getSingleUser(data['id']))                                 //subscribe-ჩასაფრება როგორცვე ეს რამეს მიიღებს საბსქრაიბით ვიჭერთ არის then ის მსგავსი
 }
 
@@ -76,7 +78,8 @@ singleUser : User = new User();
 getSingleUser(id : number){
 
 this.singleUser = this.userArr.find((user) => user.id == id)!; 
-console.log(this.singleUser)
+
+this.commonFunction.printinConsole("singleUser", JSON.stringify(this.singleUser))
 }
 
 
