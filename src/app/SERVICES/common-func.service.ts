@@ -15,4 +15,6 @@ export class CommonFuncService {
 
 
 
+
+
 //single Tone ერთი სახე აქვს ერთხელ დაიბადება და მერე ბევრჯერ შეგვიძლია გამოვაცხადოთ
