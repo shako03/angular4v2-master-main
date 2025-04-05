@@ -9,7 +9,7 @@ import { User } from '../Models/user';
 })
 export class UsersComponent {
 
-  private users: User[] = [
+   userArr: User[] = [
     {
       id: 1,
       email: 'george.bluth@reqres.in',
