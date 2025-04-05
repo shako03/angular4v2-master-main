@@ -7,12 +7,20 @@ import { UsersComponent } from './users/users.component';
 
 
 export const routes: Routes = [
-      {path:"", redirectTo:"Main", pathMatch:"full"}, //აუცილებლად უნდა ეწეროს ეს თავში
+
+      //Eagle Loading
+
+
+
+
+      { path: "", redirectTo: "main", pathMatch: "full" },
+
       {path:"Main", component:MainComponent},  
       {path:"Home", component:HomeComponent},
       {path:"Details/:id", component:DetailsComponent},
       {path:"users", component:UsersComponent },
-      
 
-      {path:"**", component:Error404Component}  //თუ არ მოიძებნა მაშინ ერორზე გადავიდეს! აუცილებლად უნდა ეწეროს ეს ბოლოში "**" ეს არის ვაილდ ქარდი და ნიშნავს რომ თუ რამე არ მოიძებნა გადავიდეს აქ
+      { path: "**", component: Error404Component }
+
+
 ];
