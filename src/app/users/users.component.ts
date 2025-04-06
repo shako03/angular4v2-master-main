@@ -3,6 +3,7 @@ import { User } from '../Models/user';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ApiService } from '../SERVICES/api.service';
+import { UserService } from '../SERVICES/user.service';
 
 @Component({
   selector: 'app-users',
@@ -11,19 +12,35 @@ import { ApiService } from '../SERVICES/api.service';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
-constructor(private  httpUsers :ApiService ) { }
+  constructor(private httpUsers: UserService) { }
 
-ngOnInit(){
-    this.httpUsers.getAllUsers().subscribe((response : any ) => {
-      this.userArr = response.data;
-      this.renderUser(response.data)
+  ngOnInit() {
+    // this.httpUsers.getAllUsers().subscribe((response: any) => {
+    //   this.renderUser(response.data)
+    // })
+
+    this.httpUsers.getAllProducts().subscribe((response: any) => {
+      this.getProducts(response.data)
+      console.log(response.data)
     })
-}
+  
 
-renderUser(arr : User[]){
-this.userArr = arr
-}
 
-userArr : User[] = []
+
+    
+  }
+
+
+
+
+
+
+  getProducts(arr: any) {
+    console.log(arr)
+  }
+
+
+
+
 
 }
