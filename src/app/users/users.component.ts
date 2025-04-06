@@ -12,35 +12,38 @@ import { UserService } from '../SERVICES/user.service';
   styleUrl: './users.component.scss'
 })
 export class UsersComponent {
-  constructor(private httpUsers: UserService) { }
+  constructor(private httpUsers : UserService){}
 
-  ngOnInit() {
-    // this.httpUsers.getAllUsers().subscribe((response: any) => {
-    //   this.renderUser(response.data)
-    // })
-
-    this.httpUsers.getAllProducts().subscribe((response: any) => {
-      this.getProducts(response.data)
-      console.log(response.data)
+  ngOnInit(){
+    this.httpUsers.getAllUsers().subscribe( (resp : any) =>{
+      console.log(resp.data) 
+      this.displayUser(resp.data)
     })
-  
+    this.httpUsers.getAlProducts().subscribe( (resp : any) =>{
+      this.getProducts(resp)
+    })
+    this.httpUsers.getUserById(1).subscribe( (resp : any) =>{
+      this.getUserById(resp)
+    })
 
-
-
-    
   }
 
+  displayUser(arr : User[]){
+    this.userArr = arr
 
+  }
 
-
-
-
-  getProducts(arr: any) {
+  getProducts(arr:any){
     console.log(arr)
   }
 
+  getUserById(id : number){
+    console.log(id)
+  }
 
 
 
+
+  userArr : User[] = []
 
 }

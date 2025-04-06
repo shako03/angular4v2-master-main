@@ -5,13 +5,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  [x: string]: any;
+
 
   constructor(private http : HttpClient) { }
 
     getAll(url : string) {
-    return this.http.get('https://reqres.in/api/users')
-  
+    return this.http.get(url)
+    }
+
+    
+    getById(url : string , id : number){
+      return this.http.get(`${url}/${id}`)
     }
   
 }

@@ -13,14 +13,27 @@ export const routes: Routes = [
 
 
 
-      { path: "", redirectTo: "main", pathMatch: "full" },
-
-      {path:"Main", component:MainComponent},  
-      {path:"Home", component:HomeComponent},
-      {path:"Details/:id", component:DetailsComponent},
-      {path:"users", component:UsersComponent },
-
-      { path: "**", component: Error404Component }
+      {path: "", redirectTo: "home", pathMatch: "full"},
+      {
+          path: "Home",
+          loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+      },
+      {
+          path: "Main",
+          loadComponent: () => import('./main/main.component').then(m => m.MainComponent)
+      },
+      {
+          path: "Details/:id",
+          loadComponent: () => import('./details/details.component').then(m => m.DetailsComponent)
+      },
+      { 
+          path: "users",
+          loadComponent: () => import('./users/users.component').then(m => m.UsersComponent)
+      },
+  
+  
+  
+      {path: "**", component: Error404Component}
 
 
 ];
