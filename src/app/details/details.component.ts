@@ -98,6 +98,7 @@ export class DetailsComponent {
 
 
 
+    
 
   }
 
